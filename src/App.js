@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import Country from './components/Country';
+import Menu from './components/Menu';
+import ProductList from './components/ProductList';
+import Search from './components/Search';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const isLogin = true;
+    const isSearch = true;
+
+    const arrayMenu = [
+      "Home",
+      "Products",
+      "News",
+      "Introduce",
+      "Contact"
+    ];
+
+    // if(isLogin === true){
+    //   return (
+    //     <>
+    //     Login
+    //     </>
+    //   );
+    // }else{
+    //   return (
+    //     <>
+    //       Not login
+    //     </>
+    //   );
+    // }
+
+    return(
+      <>
+        {isLogin ? (<>TRUE</>) : (<>FASLE </>)}
+        {isSearch && <Search/>}
+        {<Menu menu={arrayMenu}/>}
+        <div>
+          {<ProductList />}
+        </div>
+        <div>
+          {<Country />}
+        </div>
+      </>
+
+    )
 }
 
 export default App;
